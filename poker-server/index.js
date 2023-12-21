@@ -3,18 +3,19 @@
  */
 const axios = require('axios');
 const express = require('express');
-// const cors = require('cors');
-// const mongo = require('mongo');
+const cors = require('cors');
+const mongo = require('mongo');
 
 /**
 * INSTANTIATION OF THE APPLICATION THROUGH EXPRESS SERVER
  */
 const app = express();
 const PORT = 6900;
-// const options = { exposedHeaders: ['Authorization'] };
+const options = { exposedHeaders: ['Authorization'] };
 
 // app.use(cors(options));
 app.use(express.json());
+app.use(cors(options));
 
 /**
  * BUILD THE RESOURCE ROUTES
