@@ -12,7 +12,7 @@ export default {
     methods: {
         async showCards() {
             try {
-                const response = await axios.get('http://localhost:6900/cards');
+                const response = await axios.get('http://localhost:6900/cards/');
                 this.cards = response.data.cards;
             } catch(error) {
                 res.status(500).json({ error: error.message });
