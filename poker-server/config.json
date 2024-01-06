@@ -1,3 +1,7 @@
 {
-    "url": "https://deckofcardsapi.com/api"
+    "url": "https://deckofcardsapi.com/api",
+    "username": "admin",
+    "password": "xEucANOz3HmEUxIP",
+    "projectname": "Poker-Browser",
+    "jwtsecret": "cards"
 }

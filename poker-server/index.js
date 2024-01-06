@@ -4,7 +4,7 @@
 const axios = require('axios');
 const express = require('express');
 const cors = require('cors');
-const mongo = require('mongo');
+const mongo = require('./mongo/index.js');
 
 /**
 * INSTANTIATION OF THE APPLICATION THROUGH EXPRESS SERVER
@@ -21,9 +21,9 @@ app.use(cors(options));
  * BUILD THE RESOURCE ROUTES
  */
 const cards = require('./api/cards/cards-routes.js')
-
 app.use('/cards', cards);
 
 app.listen(PORT, async () => {
     console.log(`Server is listening on port ${PORT}`);
+    await mongo.connectDB();
 });

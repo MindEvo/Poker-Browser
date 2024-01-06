@@ -34,6 +34,7 @@ export default {
         },
         drawFlop() {
             try {
+                let x = this.cards.pop();
                 this.table = this.cards.splice(-3);
                 this.showTable = true;
             } catch(error) {
@@ -42,14 +43,16 @@ export default {
         },
         drawTurn() {
             try {
-                this.table = this.cards.splice(-1);
+                let x = this.cards.pop();
+                this.table.push(this.cards.pop());
             } catch(error) {
                 console.log(error);
             }
         },
         drawRiver() {
             try {
-                this.table = this.cards.splice(-1);
+                let x = this.cards.pop();
+                this.table.push(this.cards.pop());
             } catch(error) {
                 console.log(error);
             }
@@ -71,10 +74,12 @@ export default {
             <p>No cards drawn yet.</p>
         </div>
     </div>
-    <button @click="drawFlop" type="button">Dealer Show</button>
+    <button @click="drawFlop" type="button">Show Flop</button>
+    <button @click="drawTurn" type="button">Show Turn</button>
+        <button @click="drawRiver" type="button">Show River</button>
     
     <div>
-        <h2>Player Cards 1</h2>
+        <h2>Player Cards</h2>
         <div v-if="player1.length">
             <div v-for="card in player1" :key="card.code" class="card">
                 <img :src="card.image" :alt="`${card.value} of ${card.suit}`" />
