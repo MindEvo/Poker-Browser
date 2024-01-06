@@ -51,6 +51,11 @@ const evaluateHand = (cards) => {
     return "High Card";
 };
 
+const isStraightFlush = (cards) => {};
+const isFourOfAKind = (cards) => {};
+const isFullHouse = (cards) => {};
+const isFlush = (cards) => {};
+
 const isStraight = (cards) => {
     let values = cards.map(card => card.numericValue);
     let minVal = Math.min( ...values );
@@ -62,7 +67,9 @@ const isStraight = (cards) => {
     return values.every(val => val === 14 || (val >= 2 && val <= 5));
 };
 
-
+const isThreeOfAKind = (cards) => {};
+const isTwoPair = (cards) => {};
+const isPair = (cards) => {};
 
 
 

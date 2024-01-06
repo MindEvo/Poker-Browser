@@ -1,10 +1,7 @@
-const router = require('express').Router();
-const controller = require('./cards-controller.js');
-
 const { buildDeck, drawCards} = require('./cards-api.js')
-const { evaluateHand } = require('./cards-game-logic.js');
+// const { evaluateHand } = require('./cards-game-logic.js');
 
-router.get('/', async (req, res) => {
+const getCards = async (req, res) => {
     const { query } = req;
     const num = query.num;
     try {
@@ -15,8 +12,8 @@ router.get('/', async (req, res) => {
     } catch(error) {
         res.status(500).json({ error: error.message });
     }
-});
+};
 
-router.get('/:num', controller.getCards);
-
-module.exports = router;
+module.exports = {
+    getCards
+}
